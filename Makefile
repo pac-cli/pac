@@ -1,6 +1,6 @@
 # tool macros
-CC ?= clang
-CXX ?= clang
+CC := clang
+CXX := clang
 CFLAGS := 
 CXXFLAGS :=
 DBGFLAGS := -g
@@ -68,3 +68,6 @@ clean:
 distclean:
 	@echo CLEAN $(DISTCLEAN_LIST)
 	@rm -f $(DISTCLEAN_LIST)
+
+info:
+	@echo $(CC) $(COBJFLAGS) -o $@ $<

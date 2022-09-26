@@ -1,8 +1,8 @@
 # tool macros
-CC := clang
-CXX := clang
-CFLAGS := 
-CXXFLAGS :=
+CC := clang++
+CXX := clang++
+CFLAGS := --std=c++20
+CXXFLAGS := --std=c++20
 DBGFLAGS := -g
 COBJFLAGS := $(CFLAGS) -c
 
@@ -22,6 +22,7 @@ TARGET_DEBUG := $(DBG_PATH)/$(TARGET_NAME)
 
 # src files & obj files
 SRC := $(foreach x, $(SRC_PATH), $(wildcard $(addprefix $(x)/*,.c*)))
+#SRC += $(foreach x, $(SRC_PATH), $(wildcard $(addprefix $(x)/**/*,.c*)))
 OBJ := $(addprefix $(OBJ_PATH)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 OBJ_DEBUG := $(addprefix $(DBG_PATH)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 
@@ -70,4 +71,4 @@ distclean:
 	@rm -f $(DISTCLEAN_LIST)
 
 info:
-	@echo $(CC) $(COBJFLAGS) -o $@ $<
+	@echo $(SRC)

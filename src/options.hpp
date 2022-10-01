@@ -4,4 +4,5 @@
 #include <vector>
 #include <regex>
 #include <algorithm>
-void parse_options(std::vector<std::string> args);
+#include <iostream>
+std::string parse_options(std::vector<std::string> args);

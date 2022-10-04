@@ -1,6 +1,6 @@
-#include "options.hpp"
-#include "arrayToVec.hpp"
-#include "include.h"
+#include "./dependencies/options.hpp"
+#include "./dependencies/arrayToVec.hpp"
+#include "./dependencies/include.h"
 
 int main(int argc, char *argv[]){
     std::cmatch argumentMatch;

@@ -2,4 +2,4 @@
 #include <fstream>
 #include <vector>
 
-void read(std::vector<std::string> args);
+std::vector<std::string> read(std::string path);

@@ -19,7 +19,7 @@ std::vector<std::string> parse_options(std::vector<std::string> args) {
         if (std::regex_match(args[argumentIndex].c_str(), argumentMatch, std::regex("--file=(.*)"))) {
             std::cout << "//Long file argument detected" << std::endl;
             std::cout << "Path - " << argumentMatch[1];
-            return std::vector<std::string> (args, args[2]});
+            return std::vector<std::string> (args, args[2]);
         }
     }
     return std::vector<std::string> ({});

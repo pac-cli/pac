@@ -1,8 +1,8 @@
 #include "options.hpp"
-
+//TODO: Rewrite it to the boost options
 std::vector<std::string> parse_options(std::vector<std::string> args) {
     for (int argumentIndex = 1; argumentIndex < args.size(); argumentIndex++) {
-        if (args.size() < 3) return std::vector<std::string> {};
+        if (args.size() < 3) return std::vector<std::string> ({});
         std::cout << "ArgumentIndex - " << argumentIndex << std::endl;
         std::cmatch argumentMatch;
         std::cout << "Regex - " << std::regex_match(args[argumentIndex].c_str(), argumentMatch, std::regex("-f")) << std::endl;
@@ -10,7 +10,7 @@ std::vector<std::string> parse_options(std::vector<std::string> args) {
             std::cout << "//Short file argument detected" << std::endl;
             if (!(argumentIndex+1 < args.size())) {
                 std::cout << "Please, provide filepath to read" << std::endl;
-                return std::vector<std::string> {};
+                return std::vector<std::string> ({});
             }
             std::cout << "Path - " << args[argumentIndex + 1] << std::endl;
             //return "-f";
@@ -19,10 +19,10 @@ std::vector<std::string> parse_options(std::vector<std::string> args) {
         if (std::regex_match(args[argumentIndex].c_str(), argumentMatch, std::regex("--file=(.*)"))) {
             std::cout << "//Long file argument detected" << std::endl;
             std::cout << "Path - " << argumentMatch[1];
-            return std::vector<std::string> {args[1], args[2]};
+            return std::vector<std::string> (args, args[2]});
         }
     }
-    return std::vector<std::string> {};
+    return std::vector<std::string> ({});
 }
 
 /*void parse_options(std::vector<std::string> args){
